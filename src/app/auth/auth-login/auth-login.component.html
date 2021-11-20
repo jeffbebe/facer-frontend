@@ -1,0 +1,14 @@
+<div class="auth-login-container">
+  <div class="credentials-container">
+    <mat-form-field appearance="outline">
+      <mat-label> {{ "app.general.email" | translate }}</mat-label>
+      <input matInput formControlName="emailAddress" type="email" />
+      <mat-error></mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label> {{ "app.general.password" | translate }}</mat-label>
+      <input matInput formControlName="password" type="password" />
+      <mat-error></mat-error>
+    </mat-form-field>
+  </div>
+</div>
