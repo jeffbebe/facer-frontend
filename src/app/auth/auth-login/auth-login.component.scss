@@ -4,7 +4,9 @@ div.auth-login-container {
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    gap: 8px;
   }
+
   div.buttons-container {
     display: flex;
     flex-direction: row;
