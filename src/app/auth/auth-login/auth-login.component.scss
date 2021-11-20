@@ -1,0 +1,14 @@
+div.auth-login-container {
+  div.credentials-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  div.buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+}

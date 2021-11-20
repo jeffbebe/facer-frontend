@@ -1,4 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,500,600,700,800,800i,900i&display=swap");
+@import "./mixins/mat-button.mixin.scss";
+@import "./mixins/mat-form-field.mixin.scss";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Nunito Sans", "Helvetica Neue", "sans-serif";
+}
+div,
+a,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Nunito Sans", "Helvetica Neue", "sans-serif" !important;
+  line-height: normal !important;
+}
+
+@include mat-button-mixin;
+@include mat-form-field-mixin;

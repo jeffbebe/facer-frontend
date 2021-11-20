@@ -3,9 +3,16 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { AuthTemplateComponent } from './auth-template/auth-template.component';
+
 @NgModule({
-  declarations: [],
+  declarations: [AuthTemplateComponent],
   imports: [CommonModule, TranslateModule],
-  exports: [CommonModule, TranslateModule, MatSnackBarModule],
+  exports: [
+    CommonModule,
+    TranslateModule,
+    MatSnackBarModule,
+    AuthTemplateComponent,
+  ],
 })
 export class SharedModule {}

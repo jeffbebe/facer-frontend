@@ -1,0 +1,31 @@
+div.auth-template {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f6f4f4;
+
+  div.auth-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: min(800px, 60vw);
+    border: 2px solid #298b32;
+    border-radius: 8px;
+    padding: 64px 72px;
+    background-color: #ffffff;
+
+    div.auth-title {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    div.auth-description {
+      font-size: 1rem;
+      color: #242323;
+      margin-bottom: 32px;
+    }
+  }
+}

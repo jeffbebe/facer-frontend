@@ -1,3 +1,15 @@
 {
-    "language": "Polski"
+  "language": "Polski",
+  "app": {
+    "general": {
+      "email": "Adres email",
+      "password": "Hasło",
+      "logIn": "Zaloguj",
+      "register": "Rejestracja"
+    },
+    "auth": {
+      "title": "Ekran logowania",
+      "description": "Wpisz i się loguj, have fun"
+    }
+  }
 }
