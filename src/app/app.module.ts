@@ -21,8 +21,20 @@ import {
   TokenInterceptor,
   UnauthorizedInterceptor,
 } from './shared/interceptors';
+import { authReducer } from './auth/+state/auth.reducers';
+import { AuthFetchKeys, AuthState } from './auth/auth.interface';
+import { AuthEffects } from './auth/+state/auth.effects';
+import { AuthFacade } from './auth/+state/auth.facade';
 
-const combinedReducers = {};
+const combinedReducers = {
+  auth: authReducer,
+};
+
+export interface AppState {
+  auth: AuthState;
+}
+
+export type AppStateKeys = Array<AuthFetchKeys>;
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,7 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     StoreModule.forRoot(combinedReducers),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
@@ -59,6 +71,7 @@ export function createTranslateLoader(http: HttpClient) {
         multi: true,
       },
     ],
+    AuthFacade,
   ],
   bootstrap: [AppComponent],
 })

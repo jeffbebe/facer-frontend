@@ -1,5 +1,5 @@
 <div class="auth-login-container">
-  <form [formGroup]="formGroup">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
     <app-auth-template
       authTitle="app.auth.title"
       authDescription="app.auth.description"
