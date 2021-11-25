@@ -3,7 +3,9 @@
   "app": {
     "errors": {
       "forms": {
-        "required": "Pole jest wymagane"
+        "required": "Pole jest wymagane",
+        "minlength": "Pole jest za krótkie",
+        "email": "Pole musi być typu email"
       }
     },
     "general": {

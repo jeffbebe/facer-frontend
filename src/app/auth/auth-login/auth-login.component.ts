@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AuthLoginComponent {
   public formGroup = new FormGroup({
-    emailAddress: new FormControl('', [Validators.required]),
+    emailAddress: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
