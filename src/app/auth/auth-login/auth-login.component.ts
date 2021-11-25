@@ -15,4 +15,6 @@ export class AuthLoginComponent {
       Validators.minLength(6),
     ]),
   });
+
+  public onSubmit(formGroup: FormGroup): void {}
 }
