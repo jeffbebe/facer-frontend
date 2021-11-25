@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
-import { LoginUserData } from '../auth.interface';
+import { AmplifyService } from '../../shared/services/amplify.service';
+import { UserLoginData } from '../auth.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
+  constructor(private readonly amplifyService: AmplifyService) {}
 
-  public login(payload: LoginUserData) {
-    return of('');
+  public login(payload: UserLoginData) {
+    return of(this.amplifyService.signIn(payload));
   }
 }
