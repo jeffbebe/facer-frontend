@@ -1,0 +1,22 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Install Global Dependencies",
+            "type": "shell",
+            "command": "yarn global add @angular/cli"
+        },
+        {
+            "label": "Install Dependencies",
+            "type": "shell",
+            "command": "yarn"
+        },
+        {
+            "label": "Run development server",
+            "type": "shell",
+            "command": "yarn start:dev"
+        }
+    ]
+}

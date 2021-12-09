@@ -27,5 +27,23 @@ export const authReducer = createReducer(
       ...state,
       isFetching: filterKey(state.isFetching, 'login'),
     };
+  }),
+  on(authActionTypes.registerUserRequest, (state) => {
+    return {
+      ...state,
+      isFetching: [...state.isFetching, 'register'],
+    };
+  }),
+  on(authActionTypes.registerUserSuccess, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'register'),
+    };
+  }),
+  on(authActionTypes.registerUserFailure, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'register'),
+    };
   })
 );

@@ -25,6 +25,7 @@ import { authReducer } from './auth/+state/auth.reducers';
 import { AuthFetchKeys, AuthState } from './auth/auth.interface';
 import { AuthEffects } from './auth/+state/auth.effects';
 import { AuthFacade } from './auth/+state/auth.facade';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const combinedReducers = {
   auth: authReducer,
@@ -50,6 +51,7 @@ export function createTranslateLoader(http: HttpClient) {
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
     EffectsModule.forRoot([AuthEffects]),
     BrowserAnimationsModule,
+    MatSnackBarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

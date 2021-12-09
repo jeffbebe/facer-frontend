@@ -1,0 +1,16 @@
+<div class="snackbar-container">
+  <div class="message">
+    {{ data.message }}
+  </div>
+  <div class="exit-button-container">
+    <button
+      type="button"
+      mat-button
+      color="primary"
+      class="exit-button"
+      (click)="snackBarRef.dismiss()"
+    >
+      {{ data.buttonMessage }}
+    </button>
+  </div>
+</div>
