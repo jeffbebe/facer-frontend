@@ -5,18 +5,32 @@
       "forms": {
         "required": "Pole jest wymagane",
         "minlength": "Pole jest za krótkie",
-        "email": "Pole musi być typu email"
+        "email": "Pole musi być typu email",
+        "matchingPasswords": "Hasła nie są takie same"
+      },
+      "http": {
+        "User does not exist.": "Niepoprawne dane logowania"
       }
     },
     "general": {
       "email": "Adres email",
       "password": "Hasło",
-      "logIn": "Zaloguj",
-      "register": "Rejestracja"
+      "logIn": "Zaloguj się",
+      "loggingIn": "Logowanie",
+      "register": "Zarejestruj się",
+      "registering": "Rejestracja",
+      "confirmPassword": "Potwierdź hasło"
     },
     "auth": {
-      "title": "Ekran logowania",
-      "description": "Wpisz i się loguj, have fun"
+      "login": {
+        "title": "Ekran logowania",
+        "description": "Wpisz i się loguj, have fun"
+      },
+      "register": {
+        "title": "Ekran rejestracji",
+        "description": "Wymyślanie w trakcie",
+        "success": "Użytkownik zarejestrowany pomyślnie"
+      }
     }
   }
 }

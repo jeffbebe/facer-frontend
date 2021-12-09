@@ -1,8 +1,8 @@
-<div class="auth-login-container">
+<div class="auth-register-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
     <app-auth-template
-      authTitle="app.auth.login.title"
-      authDescription="app.auth.login.description"
+      authTitle="app.auth.register.title"
+      authDescription="app.auth.register.description"
     >
       <div class="credentials-container">
         <mat-form-field appearance="outline">
@@ -15,19 +15,28 @@
           <input matInput formControlName="password" type="password" />
           <mat-error>{{ formGroup | retrieveError: "password" }}</mat-error>
         </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>
+            {{ "app.general.confirmPassword" | translate }}</mat-label
+          >
+          <input matInput formControlName="confirmPassword" type="password" />
+          <mat-error>{{
+            formGroup | retrieveError: "confirmPassword"
+          }}</mat-error>
+        </mat-form-field>
       </div>
       <div class="buttons-container">
         <button mat-flat-button color="primary" [disabled]="formGroup.invalid">
-          {{ "app.general.logIn" | translate }}
+          {{ "app.general.register" | translate }}
         </button>
         <button
-          mat-flat-button
-          type="button"
-          color="primary"
-          (click)="navigateToRegister()"
-        >
-          {{ "app.general.registering" | translate }}
-        </button>
+        mat-flat-button
+        type="button"
+        color="primary"
+        (click)="navigateToLogin()"
+      >
+        {{ "app.general.loggingIn" | translate }}
+      </button>
       </div>
     </app-auth-template>
   </form>

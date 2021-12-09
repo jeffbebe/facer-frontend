@@ -56,7 +56,16 @@
               "outputHashing": "all"
             },
             "development": {
-              "sourceMap": true,
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": false,
+              "statsJson": false,
+              "progress": false,
+              "vendorChunk": true,
+              "buildOptimizer": false,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -74,8 +83,7 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "local-development": {
               "buildOptimizer": false,
@@ -98,7 +106,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "port": 3000
+            "port": 3000,
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

@@ -1,16 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
 
 import { AmplifyService } from '../../shared/services/amplify.service';
-import { UserLoginData } from '../auth.interface';
+import { UserLoginData, UserRegisterData } from '../auth.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private readonly amplifyService: AmplifyService) {}
+  constructor(
+    private readonly amplifyService: AmplifyService,
+    private readonly http: HttpClient
+  ) {}
 
   public login(payload: UserLoginData) {
-    return of(this.amplifyService.signIn(payload));
+    return this.amplifyService.signIn(payload);
+  }
+
+  public register(payload: UserRegisterData) {
+    return this.http.post('api/register', payload);
   }
 }

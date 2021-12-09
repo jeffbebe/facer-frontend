@@ -3,9 +3,12 @@ export interface UserLoginData {
   password: string;
 }
 
-export type AuthStateKeys = Array<
-  'login' | 'logout' | 'register' | 'forgotPassword' | 'forgotPasswordSubmit'
->;
+export interface UserRegisterData {
+  emailAddress: string;
+  password: string;
+}
+
+export type AuthStateKeys = Array<'login' | 'register'>;
 
 export type AuthFetchKeys = AuthStateKeys[number];
 
