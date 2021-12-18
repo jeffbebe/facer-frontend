@@ -28,6 +28,7 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "@types/angular": "^1.8.3",
     "@types/lodash-es": "^4.17.5",
+    "amazon-cognito-identity-js": "^5.2.3",
     "aws-amplify": "^4.3.8",
     "lodash-es": "^4.17.21",
     "rxjs": "~6.6.0",

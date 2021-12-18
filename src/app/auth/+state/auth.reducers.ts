@@ -6,6 +6,7 @@ import { authActionTypes } from './auth.actions';
 
 export const initialState: AuthState = {
   isFetching: [],
+  user: { sub: '', email: '' },
 };
 
 export const authReducer = createReducer(
@@ -16,9 +17,10 @@ export const authReducer = createReducer(
       isFetching: [...state.isFetching, 'login'],
     };
   }),
-  on(authActionTypes.loginUserSuccess, (state) => {
+  on(authActionTypes.loginUserSuccess, (state, action) => {
     return {
       ...state,
+      user: action.user,
       isFetching: filterKey(state.isFetching, 'login'),
     };
   }),

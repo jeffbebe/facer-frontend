@@ -6,8 +6,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AuthTemplateComponent } from './components/auth-template/auth-template.component';
-import { RetrieveErrorPipe } from './pipes/retrieve-error.pipe';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { RetrieveErrorPipe } from './pipes/retrieve-error.pipe';
 
 @NgModule({
   declarations: [AuthTemplateComponent, RetrieveErrorPipe, SnackbarComponent],

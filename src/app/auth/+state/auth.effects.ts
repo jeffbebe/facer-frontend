@@ -33,8 +33,14 @@ export class AuthEffects {
       ofType(loginUserRequest),
       concatMap(({ payload }) => {
         return this.authService.login(payload).pipe(
-          map(() => {
-            return loginUserSuccess();
+          map((user) => {
+            if ('challengeName' in user) {
+              this.httpErrorService.handleErrors(
+                'New password required' as unknown as HttpErrorResponse
+              );
+              return loginUserFailure();
+            }
+            return loginUserSuccess({ user: { ...user.attributes } });
           }),
           catchError((httpError: HttpErrorResponse) => {
             this.httpErrorService.handleErrors(httpError);
