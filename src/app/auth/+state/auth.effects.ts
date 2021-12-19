@@ -40,6 +40,7 @@ export class AuthEffects {
               );
               return loginUserFailure();
             }
+            this.router.navigate([AbsolutePaths.main.pictures]);
             return loginUserSuccess({ user: { ...user.attributes } });
           }),
           catchError((httpError: HttpErrorResponse) => {

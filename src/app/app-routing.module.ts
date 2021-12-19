@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    //canActivateChild: [MainGuard],
+    canActivateChild: [MainGuard],
     loadChildren: () =>
       import('./main/main.module').then((module) => module.MainModule),
   },
