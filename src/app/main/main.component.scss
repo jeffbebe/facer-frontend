@@ -1,0 +1,80 @@
+div.main-component {
+  min-height: 100vh;
+
+  .app-logo-container {
+    width: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      margin: 8px 16px 8px 0;
+      width: 50px;
+    }
+  }
+
+  mat-toolbar {
+    background-color: #3c487a;
+    display: flex;
+    justify-content: space-between;
+
+    .mat-toolbar-text {
+      color: white;
+      margin-right: 42px;
+    }
+  }
+
+  .mat-toolbar-row,
+  .mat-toolbar-single-row {
+    height: unset;
+  }
+  mat-drawer-container {
+    min-height: calc(100vh - 66px);
+    div.content {
+      --drawerBackground: #525a97;
+      --menu-active-background: #33ad83;
+      --menubar-width-element: 177px;
+      --menu-font-color: #ffffff;
+
+      display: flex;
+      flex-direction: column;
+
+      min-height: 100%;
+
+      background: var(--drawerBackground);
+      color: var(--menu-font-color);
+
+      div.nav-user-data-container {
+        padding: 21px 32px 10px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        div.title {
+          display: flex;
+          justify-content: center;
+          height: 24px;
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        div.user-data {
+          font-size: 22px;
+          font-weight: 700;
+        }
+      }
+      mat-divider {
+        height: 2px;
+        background: #ffffff;
+        opacity: 0.35;
+      }
+
+      app-nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
