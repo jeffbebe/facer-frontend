@@ -12,7 +12,8 @@
       </mat-list-item>
     </ng-container>
   </mat-action-list>
-  <mat-action-list class="action-list">
+  <mat-action-list class="action-list-logout">
+    <mat-divider></mat-divider>
     <mat-list-item (click)="logoutUser()" id="logOutBtn">
       <div class="item-text">{{ "app.main.logout" | translate }}</div>
     </mat-list-item>
