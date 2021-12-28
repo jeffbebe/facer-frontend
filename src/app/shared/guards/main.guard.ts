@@ -1,14 +1,15 @@
 import { CanActivateChild, Router } from '@angular/router';
 import { Injectable, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { of, Subscription } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { AuthFacade } from '../../../app/auth/+state/auth.facade';
+import { AbsolutePaths } from '../dictionaries/url-paths';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivateChild, OnDestroy {
+export class MainGuard implements CanActivateChild, OnDestroy {
   private subscription: Subscription;
   private canActivate = false;
 
@@ -20,7 +21,7 @@ export class AuthGuard implements CanActivateChild, OnDestroy {
       .getUser()
       .pipe(
         tap((user) => {
-          this.canActivate = user.sub.length === 0;
+          this.canActivate = user.sub.length > 0;
         })
       )
       .subscribe();
@@ -31,7 +32,7 @@ export class AuthGuard implements CanActivateChild, OnDestroy {
   }
 
   public canActivateChild(): boolean {
-    !this.canActivate && this.router.navigate(['/']);
+    !this.canActivate && this.router.navigate([AbsolutePaths.auth.login]);
     return this.canActivate;
   }
 }

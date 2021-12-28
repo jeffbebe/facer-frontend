@@ -1,0 +1,21 @@
+<nav class="menu-list">
+  <mat-action-list class="action-list">
+    <ng-container *ngFor="let nav of navs">
+      <mat-list-item
+        [routerLink]="createRoute(nav.route)"
+        routerLinkActive="active-link"
+        [attr.data-testid]="nav.route"
+      >
+        <div class="item-text">
+          {{ "app.main." + nav.route | translate }}
+        </div>
+      </mat-list-item>
+    </ng-container>
+  </mat-action-list>
+  <mat-action-list class="action-list-logout">
+    <mat-divider></mat-divider>
+    <mat-list-item (click)="logoutUser()" id="logOutBtn">
+      <div class="item-text">{{ "app.main.logout" | translate }}</div>
+    </mat-list-item>
+  </mat-action-list>
+</nav>

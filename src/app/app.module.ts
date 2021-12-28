@@ -6,6 +6,7 @@ import {
   HTTP_INTERCEPTORS,
   HttpClient,
 } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -25,7 +26,7 @@ import { authReducer } from './auth/+state/auth.reducers';
 import { AuthFetchKeys, AuthState } from './auth/auth.interface';
 import { AuthEffects } from './auth/+state/auth.effects';
 import { AuthFacade } from './auth/+state/auth.facade';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AuthService } from './auth/+state/auth.service';
 
 const combinedReducers = {
   auth: authReducer,
@@ -74,6 +75,7 @@ export function createTranslateLoader(http: HttpClient) {
       },
     ],
     AuthFacade,
+    AuthService,
   ],
   bootstrap: [AppComponent],
 })

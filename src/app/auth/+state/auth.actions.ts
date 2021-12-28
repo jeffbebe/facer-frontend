@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { User } from 'src/app/shared/services/amplify.service';
 
 import { UserLoginData, UserRegisterData } from '../auth.interface';
 
@@ -7,7 +8,10 @@ export const loginUserRequest = createAction(
   props<{ payload: UserLoginData }>()
 );
 
-export const loginUserSuccess = createAction('[Auth] Login User Success');
+export const loginUserSuccess = createAction(
+  '[Auth] Login User Success',
+  props<{ user: User }>()
+);
 
 export const loginUserFailure = createAction('[Auth] Login User Failure');
 

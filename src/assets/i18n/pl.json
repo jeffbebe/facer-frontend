@@ -1,6 +1,7 @@
 {
   "language": "Polski",
   "app": {
+    "name": "Facer",
     "errors": {
       "forms": {
         "required": "Pole jest wymagane",
@@ -31,6 +32,12 @@
         "description": "Wymyślanie w trakcie",
         "success": "Użytkownik zarejestrowany pomyślnie"
       }
+    },
+    "main": {
+      "user": "Użytkownik",
+      "logout": "Wyloguj",
+      "detectFace": "Wykrywanie twarzy",
+      "pictures": "Zdjęcia"
     }
   }
 }

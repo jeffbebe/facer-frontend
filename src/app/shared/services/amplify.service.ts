@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import Amplify, { Auth } from 'aws-amplify';
+import { CognitoUserSession } from 'amazon-cognito-identity-js';
 import { from, Observable } from 'rxjs';
 
 import { UserLoginData } from '../../auth/auth.interface';
@@ -22,6 +23,20 @@ export interface CognitoUser {
   };
 }
 
+export interface CurrentUserInfo {
+  attributes: {
+    email: string;
+    sub: string;
+  };
+  id: string;
+  username: string;
+}
+
+export interface User {
+  email: string;
+  sub: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -37,5 +52,13 @@ export class AmplifyService {
         password: payload.password,
       })
     );
+  }
+
+  public getCurrentUserInfo(): Observable<CurrentUserInfo> {
+    return from(Auth.currentUserInfo());
+  }
+
+  public getCurrentSession(): Observable<CognitoUserSession> {
+    return from(Auth.currentSession());
   }
 }

@@ -1,3 +1,5 @@
+import { User } from '../shared/services/amplify.service';
+
 export interface UserLoginData {
   emailAddress: string;
   password: string;
@@ -14,4 +16,5 @@ export type AuthFetchKeys = AuthStateKeys[number];
 
 export interface AuthState {
   isFetching: AuthStateKeys;
+  user: User;
 }
