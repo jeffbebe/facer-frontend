@@ -10,7 +10,7 @@ export interface UserRegisterData {
   password: string;
 }
 
-export type AuthStateKeys = Array<'login' | 'register'>;
+export type AuthStateKeys = Array<'login' | 'register' | 'logout'>;
 
 export type AuthFetchKeys = AuthStateKeys[number];
 

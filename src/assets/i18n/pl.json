@@ -31,6 +31,10 @@
         "title": "Ekran rejestracji",
         "description": "Wymyślanie w trakcie",
         "success": "Użytkownik zarejestrowany pomyślnie"
+      },
+      "logout": {
+        "success": "Wylogowano pomyślnie",
+        "failure": "Niepowodzenie wylogowania"
       }
     },
     "main": {

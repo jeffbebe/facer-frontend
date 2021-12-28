@@ -15,6 +15,9 @@ import {
   registerUserSuccess,
   registerUserFailure,
   registerUserRequest,
+  logoutUserRequest,
+  logoutUserFailure,
+  logoutUserSuccess,
 } from './auth.actions';
 import { AuthService } from './auth.service';
 
@@ -65,6 +68,25 @@ export class AuthEffects {
           catchError((httpError: HttpErrorResponse) => {
             this.httpErrorService.handleErrors(httpError);
             return of(registerUserFailure());
+          })
+        );
+      })
+    );
+  });
+
+  public logoutUserRequest$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(logoutUserRequest),
+      concatMap(() => {
+        return this.authService.logout().pipe(
+          map(() => {
+            this.snackbar.open({ message: 'app.auth.logout.success' });
+            this.router.navigate([AbsolutePaths.auth.login]);
+            return logoutUserSuccess();
+          }),
+          catchError(() => {
+            this.snackbar.open({ message: 'app.auth.logout.failure' });
+            return of(logoutUserFailure());
           })
         );
       })
