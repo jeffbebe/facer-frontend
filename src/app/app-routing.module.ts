@@ -6,7 +6,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { MainGuard } from './shared/guards/main.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: AbsolutePaths.main.default, pathMatch: 'full' },
+  { path: '', redirectTo: AbsolutePaths.main.pictures, pathMatch: 'full' },
   {
     path: 'auth',
     canActivateChild: [AuthGuard],
