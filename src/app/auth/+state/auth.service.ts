@@ -33,4 +33,8 @@ export class AuthService {
   public getCurrentSession(): Observable<CognitoUserSession> {
     return this.amplifyService.getCurrentSession();
   }
+
+  public logout(): Observable<void> {
+    return this.amplifyService.signOut();
+  }
 }

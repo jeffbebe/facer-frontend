@@ -5,7 +5,11 @@ import { Observable } from 'rxjs';
 import { User } from '../../shared/services/amplify.service';
 import { AppState } from '../../app.module';
 import { UserLoginData, UserRegisterData } from '../auth.interface';
-import { loginUserRequest, registerUserRequest } from './auth.actions';
+import {
+  loginUserRequest,
+  logoutUserRequest,
+  registerUserRequest,
+} from './auth.actions';
 import { userSelector } from './auth.selector';
 
 @Injectable()
@@ -22,5 +26,9 @@ export class AuthFacade {
 
   public getUser(): Observable<User> {
     return this.store.select(userSelector);
+  }
+
+  public logoutUser(): void {
+    this.store.dispatch(logoutUserRequest());
   }
 }

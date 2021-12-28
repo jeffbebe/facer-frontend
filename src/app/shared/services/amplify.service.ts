@@ -61,4 +61,8 @@ export class AmplifyService {
   public getCurrentSession(): Observable<CognitoUserSession> {
     return from(Auth.currentSession());
   }
+
+  public signOut(): Observable<void> {
+    return from(Auth.signOut());
+  }
 }

@@ -25,7 +25,7 @@ export class NavComponent {
   constructor(private readonly authFacade: AuthFacade) {}
 
   public logoutUser(): void {
-    //this.authFacade.logoutUser();
+    this.authFacade.logoutUser();
   }
 
   public createRoute(route: string): string {
