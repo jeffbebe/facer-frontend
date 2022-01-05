@@ -10,7 +10,12 @@
         "matchingPasswords": "Hasła nie są takie same"
       },
       "http": {
-        "User does not exist.": "Niepoprawne dane logowania"
+        "User does not exist.": "Niepoprawne dane logowania",
+        "No face found": "Nie odnaleziono twarzy",
+        "Limit of images per user exceeded": "Limit zapisanych twarzy przekroczony",
+        "No such user found in db": "Nie odnaleziono takiego użytkownika",
+        "No image or name was delivered": "Nazwa lub zdjęcie nie zostało dostarczone",
+        "Invalid user data": "Niepoprawne dane"
       }
     },
     "general": {
