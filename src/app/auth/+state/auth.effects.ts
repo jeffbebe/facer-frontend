@@ -44,7 +44,12 @@ export class AuthEffects {
               return loginUserFailure();
             }
             this.router.navigate([AbsolutePaths.main.pictures]);
-            return loginUserSuccess({ user: { ...user.attributes } });
+            return loginUserSuccess({
+              user: {
+                ...user.attributes,
+                accessToken: user.signInUserSession.accessToken.jwtToken,
+              },
+            });
           }),
           catchError((httpError: HttpErrorResponse) => {
             this.httpErrorService.handleErrors(httpError);

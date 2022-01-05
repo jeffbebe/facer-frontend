@@ -41,7 +41,12 @@
       "user": "Użytkownik",
       "logout": "Wyloguj",
       "detectFace": "Wykrywanie twarzy",
-      "pictures": "Zdjęcia"
+      "pictures": "Zdjęcia",
+      "picturesRoute": {
+        "name": "Nazwa zdjęcia",
+        "chooseFile": "Wgraj zdjęcie",
+        "upload": "Prześlij"
+      }
     }
   }
 }

@@ -6,7 +6,7 @@ import { authActionTypes } from './auth.actions';
 
 export const initialState: AuthState = {
   isFetching: [],
-  user: { sub: '', email: '' },
+  user: { sub: '', email: '', accessToken: '' },
 };
 
 export const authReducer = createReducer(

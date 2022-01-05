@@ -1,1 +1,26 @@
-<p>pictures works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+  <div class="pictures-component-container">
+    <div class="top-bar">
+      <mat-form-field appearance="outline">
+        <mat-label> {{ "app.main.picturesRoute.name" | translate }}</mat-label>
+        <input matInput formControlName="name" type="text" />
+        <mat-error>{{ formGroup | retrieveError: "name" }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>
+          {{ "app.main.picturesRoute.chooseFile" | translate }}</mat-label
+        >
+        <ngx-mat-file-input
+          formControlName="picture"
+          color="primary"
+        ></ngx-mat-file-input>
+        <mat-error>{{ formGroup | retrieveError: "name" }}</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary">
+        {{ "app.main.picturesRoute.upload" | translate }}
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="content"></div>
+  </div>
+</form>

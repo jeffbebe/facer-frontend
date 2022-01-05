@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -7,19 +7,34 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 
+import { AuthFacade } from '../../../app/auth/+state/auth.facade';
+import { tap } from 'rxjs/operators';
+
 @Injectable()
-export class TokenInterceptor implements HttpInterceptor {
-  constructor() {}
+export class TokenInterceptor implements HttpInterceptor, OnDestroy {
+  private subscription = new Subscription();
+  private token: string = '';
+
+  constructor(private readonly authFacade: AuthFacade) {
+    this.subscription.add(
+      this.authFacade
+        .getUser()
+        .pipe(tap((user) => (this.token = user.accessToken)))
+        .subscribe()
+    );
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('token');
-
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${this.token}`,
         'Access-Control-Allow-Origin': '*',
       },
     });
