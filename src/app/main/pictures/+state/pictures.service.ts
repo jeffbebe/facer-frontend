@@ -9,7 +9,7 @@ import { UploadPictureData } from '../pictures.interface';
 export class PicturesService {
   constructor(private readonly http: HttpClient) {}
 
-  public uploadPicture(payload: UploadPictureData) {
-    return this.http.post<null>('api/image', payload.formData);
+  public uploadPicture({ formData }: UploadPictureData) {
+    return this.http.post<null>('api/image', formData);
   }
 }

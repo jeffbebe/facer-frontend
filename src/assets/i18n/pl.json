@@ -45,7 +45,8 @@
       "picturesRoute": {
         "name": "Nazwa zdjęcia",
         "chooseFile": "Wgraj zdjęcie",
-        "upload": "Prześlij"
+        "upload": "Prześlij",
+        "onImageUploadSuccess": "Pomyślnie wykryto twarz i dodano zdjęcie do zbioru"
       }
     }
   }

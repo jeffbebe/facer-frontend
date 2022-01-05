@@ -9,6 +9,7 @@ export interface PicturesState {
 
 export interface UploadPictureData {
   formData: FormData;
+  onSuccess: () => void;
 }
 
 export interface Event<T = EventTarget> {

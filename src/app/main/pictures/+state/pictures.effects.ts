@@ -26,6 +26,7 @@ export class PicturesEffects {
       concatMap(({ payload }) => {
         return this.picturesService.uploadPicture(payload).pipe(
           map(() => {
+            payload.onSuccess();
             return uploadPictureSuccess();
           }),
           catchError((httpError: HttpErrorResponse) => {
