@@ -46,7 +46,7 @@ export class HttpErrorService {
     }
 
     this.snackbar.open({
-      message: `app.errors.http.${error.message}`,
+      message: `app.errors.http.${error.error}`,
     });
   };
 }

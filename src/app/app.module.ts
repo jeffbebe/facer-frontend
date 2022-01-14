@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { StoreModule } from '@ngrx/store';
+import { MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -18,29 +18,37 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {
-  TokenInterceptor,
-  UnauthorizedInterceptor,
-} from './shared/interceptors';
+import { TimeoutInterceptor, TokenInterceptor } from './shared/interceptors';
 import { authReducer } from './auth/+state/auth.reducers';
 import { AuthFetchKeys, AuthState } from './auth/auth.interface';
 import { AuthEffects } from './auth/+state/auth.effects';
 import { AuthFacade } from './auth/+state/auth.facade';
 import { AuthService } from './auth/+state/auth.service';
+import {
+  PicturesFetchKeys,
+  PicturesState,
+} from './main/pictures/pictures.interface';
+import { picturesReducer } from './main/pictures/+state/pictures.reducers';
+import { hydrationMetaReducer } from './shared/hydration/+state/hydration.reducer';
+import { HydrationModule } from './shared/hydration/hydration.module';
 
 const combinedReducers = {
   auth: authReducer,
+  pictures: picturesReducer,
 };
 
 export interface AppState {
   auth: AuthState;
+  pictures: PicturesState;
 }
 
-export type AppStateKeys = Array<AuthFetchKeys>;
+export type AppStateKeys = Array<AuthFetchKeys | PicturesFetchKeys>;
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+export const metaReducers: MetaReducer[] = [hydrationMetaReducer];
 
 @NgModule({
   declarations: [AppComponent],
@@ -48,11 +56,12 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(combinedReducers),
+    StoreModule.forRoot(combinedReducers, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
     EffectsModule.forRoot([AuthEffects]),
     BrowserAnimationsModule,
     MatSnackBarModule,
+    HydrationModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -70,7 +79,7 @@ export function createTranslateLoader(http: HttpClient) {
       },
       {
         provide: HTTP_INTERCEPTORS,
-        useClass: UnauthorizedInterceptor,
+        useClass: TimeoutInterceptor,
         multi: true,
       },
     ],

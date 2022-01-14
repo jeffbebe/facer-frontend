@@ -20,6 +20,9 @@ export interface CognitoUser {
     idToken: {
       jwtToken: string;
     };
+    accessToken: {
+      jwtToken: string;
+    };
   };
 }
 
@@ -35,6 +38,7 @@ export interface CurrentUserInfo {
 export interface User {
   email: string;
   sub: string;
+  accessToken: string;
 }
 
 @Injectable({

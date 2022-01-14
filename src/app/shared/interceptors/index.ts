@@ -1,9 +1,9 @@
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TimeoutInterceptor } from './timeout.interceptor';
 
-import { TokenInterceptor } from "./token.interceptor";
-import { UnauthorizedInterceptor } from "./unauthorized.interceptor";
+import { TokenInterceptor } from './token.interceptor';
 
-export { TokenInterceptor, UnauthorizedInterceptor };
+export { TokenInterceptor, TimeoutInterceptor };
 
 export default [
   {
@@ -13,7 +13,7 @@ export default [
   },
   {
     provide: HTTP_INTERCEPTORS,
-    useClass: UnauthorizedInterceptor,
+    useClass: TimeoutInterceptor,
     multi: true,
   },
 ];

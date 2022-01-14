@@ -1,5 +1,7 @@
-div.main-component {
-  min-height: 100vh;
+main.main-component {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
   .app-logo-container {
     width: 270px;
@@ -17,6 +19,9 @@ div.main-component {
     background-color: #3c487a;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    height: auto;
+    padding: 12px 16px;
 
     .mat-toolbar-text {
       color: white;
@@ -29,7 +34,8 @@ div.main-component {
     height: unset;
   }
   mat-drawer-container {
-    min-height: calc(100vh - 66px);
+    flex: 1;
+
     div.content {
       --drawerBackground: #525a97;
       --menu-active-background: #33ad83;
