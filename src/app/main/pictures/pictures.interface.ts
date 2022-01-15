@@ -4,7 +4,7 @@ export type PicturesFetchKeys = PicturesStateKeys[number];
 
 export interface PicturesState {
   isFetching: PicturesStateKeys;
-  pictures: string[];
+  pictures: DownloadedPicture[];
 }
 
 export interface UploadPictureData {
@@ -14,4 +14,9 @@ export interface UploadPictureData {
 
 export interface Event<T = EventTarget> {
   target: T;
+}
+
+export interface DownloadedPicture {
+  name: string;
+  image: string;
 }

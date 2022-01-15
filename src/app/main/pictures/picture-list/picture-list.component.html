@@ -1,1 +1,9 @@
-<p>picture-list works!</p>
+<div class="picture-list-component">
+  <div class="image-container">
+    <ng-container
+      *ngFor="let picture of downloadedPictures; trackBy: trackByKey"
+    >
+      <app-picture-list-item [picture]="picture"></app-picture-list-item>
+    </ng-container>
+  </div>
+</div>

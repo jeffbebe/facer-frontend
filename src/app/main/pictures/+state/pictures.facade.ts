@@ -2,8 +2,13 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '../../../app.module';
-import { uploadPictureRequest } from './pictures.actions';
-import { UploadPictureData } from '../pictures.interface';
+import {
+  downloadPicturesRequest,
+  uploadPictureRequest,
+} from './pictures.actions';
+import { DownloadedPicture, UploadPictureData } from '../pictures.interface';
+import { picturesSelector } from './pictures.selector';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class PicturesFacade {
@@ -13,7 +18,11 @@ export class PicturesFacade {
     this.store.dispatch(uploadPictureRequest({ payload }));
   }
 
-  // public getUser(): Observable<User> {
-  //   return this.store.select(userSelector);
-  // }
+  public downloadPictures(): void {
+    this.store.dispatch(downloadPicturesRequest());
+  }
+
+  public getPictures(): Observable<DownloadedPicture[]> {
+    return this.store.select(picturesSelector);
+  }
 }

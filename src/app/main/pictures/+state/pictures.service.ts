@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { UploadPictureData } from '../pictures.interface';
+import { DownloadedPicture, UploadPictureData } from '../pictures.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,5 +11,9 @@ export class PicturesService {
 
   public uploadPicture({ formData }: UploadPictureData) {
     return this.http.post<null>('api/image', formData);
+  }
+
+  public downloadPictures() {
+    return this.http.get<DownloadedPicture[]>('api/image');
   }
 }

@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { UploadPictureData } from '../pictures.interface';
+import { DownloadedPicture, UploadPictureData } from '../pictures.interface';
 
 export const uploadPictureRequest = createAction(
   '[Pictures] Upload Picture Request',
@@ -20,7 +20,8 @@ export const downloadPicturesRequest = createAction(
 );
 
 export const downloadPicturesSuccess = createAction(
-  '[Pictures] Download Pictures Success'
+  '[Pictures] Download Pictures Success',
+  props<{ pictures: DownloadedPicture[] }>()
 );
 
 export const downloadPicturesFailure = createAction(

@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DownloadedPicture } from '../pictures.interface';
 
 @Component({
   selector: 'app-picture-list',
   templateUrl: './picture-list.component.html',
-  styleUrls: ['./picture-list.component.scss']
+  styleUrls: ['./picture-list.component.scss'],
 })
-export class PictureListComponent implements OnInit {
+export class PictureListComponent {
+  @Input() downloadedPictures?: DownloadedPicture[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public trackByKey(index: number, item: DownloadedPicture) {
+    return item.name;
   }
-
 }

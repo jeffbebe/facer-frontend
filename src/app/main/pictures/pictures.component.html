@@ -21,6 +21,10 @@
       </button>
     </div>
     <mat-divider></mat-divider>
-    <div class="content"></div>
+    <div class="content" *ngIf="downloadedPictures">
+      <app-picture-list
+        [downloadedPictures]="downloadedPictures"
+      ></app-picture-list>
+    </div>
   </div>
 </form>

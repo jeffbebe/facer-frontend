@@ -6,6 +6,9 @@ import { catchError, concatMap, map } from 'rxjs/operators';
 
 import { HttpErrorService } from '../../../shared/services/http-error.service';
 import {
+  downloadPicturesFailure,
+  downloadPicturesRequest,
+  downloadPicturesSuccess,
   uploadPictureFailure,
   uploadPictureRequest,
   uploadPictureSuccess,
@@ -32,6 +35,23 @@ export class PicturesEffects {
           catchError((httpError: HttpErrorResponse) => {
             this.httpErrorService.handleErrors(httpError);
             return of(uploadPictureFailure());
+          })
+        );
+      })
+    );
+  });
+
+  public downloadPicturesRequest$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(downloadPicturesRequest),
+      concatMap(() => {
+        return this.picturesService.downloadPictures().pipe(
+          map((pictures) => {
+            return downloadPicturesSuccess({ pictures });
+          }),
+          catchError((httpError: HttpErrorResponse) => {
+            this.httpErrorService.handleErrors(httpError);
+            return of(downloadPicturesFailure());
           })
         );
       })

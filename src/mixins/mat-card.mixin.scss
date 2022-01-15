@@ -1,0 +1,13 @@
+@mixin mat-card-mixin {
+  .mat-card-header {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .mat-card-actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}

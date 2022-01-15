@@ -66,5 +66,11 @@ export const authReducer = createReducer(
       ...state,
       isFetching: filterKey(state.isFetching, 'logout'),
     };
+  }),
+  on(authActionTypes.refreshUserToken, (state, action) => {
+    return {
+      ...state,
+      user: { ...state.user, accessToken: action.accessToken },
+    };
   })
 );

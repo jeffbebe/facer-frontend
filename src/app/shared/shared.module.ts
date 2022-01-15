@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { AuthTemplateComponent } from './components/auth-template/auth-template.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { RetrieveErrorPipe } from './pipes/retrieve-error.pipe';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { NavComponent } from './components/nav/nav.component';
     RetrieveErrorPipe,
     SnackbarComponent,
     NavComponent,
+    SafeHtmlPipe,
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,7 @@ import { NavComponent } from './components/nav/nav.component';
     RetrieveErrorPipe,
     SnackbarComponent,
     NavComponent,
+    SafeHtmlPipe,
   ],
 })
 export class SharedModule {}

@@ -1,0 +1,9 @@
+div.picture-list-component {
+  div.image-container {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+}
