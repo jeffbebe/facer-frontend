@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,500,600,700,800,800i,900i&display=swap");
 @import "./mixins/mat-button.mixin.scss";
 @import "./mixins/mat-form-field.mixin.scss";
+@import "./mixins/mat-card.mixin.scss";
 
 html,
 body {
@@ -27,3 +28,4 @@ p {
 
 @include mat-button-mixin;
 @include mat-form-field-mixin;
+@include mat-card-mixin;
