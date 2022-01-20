@@ -47,5 +47,23 @@ export const picturesReducer = createReducer(
       ...state,
       isFetching: filterKey(state.isFetching, 'downloadPictures'),
     };
+  }),
+  on(picturesActionTypes.detectFacesRequest, (state) => {
+    return {
+      ...state,
+      isFetching: [...state.isFetching, 'detectFaces'],
+    };
+  }),
+  on(picturesActionTypes.detectFacesSuccess, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'detectFaces'),
+    };
+  }),
+  on(picturesActionTypes.detectFacesFailure, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'detectFaces'),
+    };
   })
 );

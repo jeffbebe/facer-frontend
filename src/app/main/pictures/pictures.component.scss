@@ -7,20 +7,59 @@ div.pictures-component-container {
   box-shadow: 0 4px 15px #8f8f8f26, 0 2px 4px #8f8f8f1a;
   border-radius: 16px;
 
+  div.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
   div.top-bar {
     display: flex;
     flex-direction: row;
-
+    flex-wrap: wrap;
     align-items: center;
-    gap: 16px;
+    gap: 48px;
 
-    button {
-      height: 48px;
+    div.picture-upload,
+    div.face-check {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      div.forms {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+
+        button {
+          height: 48px;
+        }
+      }
+    }
+  }
+
+  div.picture-preview {
+    .wrapper {
+      position: relative;
+    }
+
+    .frame {
+      position: absolute;
+      border: 2px solid #ffffff;
+      background-color: transparent;
+    }
+    .name {
+      position: absolute;
     }
   }
   mat-divider {
     margin: 24px 0;
   }
   div.content {
+    background: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 }
