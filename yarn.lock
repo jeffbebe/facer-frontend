@@ -123,7 +123,7 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
-"@angular-material-components/file-input@6.0.1":
+"@angular-material-components/file-input@6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@angular-material-components/file-input/-/file-input-6.0.0.tgz#7ee1859bbd88ea7580d5ede6efd0ee7aa31f93e7"
   integrity sha512-Bm11jQWYGyHjsGaCjNDzL2p62Ax49NNkrB/8CwRNj6N/r8y162Cj5+QWrl099+kSLJ7HRwxJcXKEH5zxspOU4w==
@@ -7082,6 +7082,13 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+ngx-webcam@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/ngx-webcam/-/ngx-webcam-0.4.1.tgz#2493b7a5b2b3acd9590c4384255f269fefc678a8"
+  integrity sha512-8WoC8GWHaN5tH+4zO0/gfUigVKg/jX7JShAewpumJIgJXFmlKhSPnPjewNNxv7OTQiOOb+5Mh6lhTo52VLlY9A==
+  dependencies:
+    tslib "^2.3.0"
 
 nice-try@^1.0.4:
   version "1.0.5"

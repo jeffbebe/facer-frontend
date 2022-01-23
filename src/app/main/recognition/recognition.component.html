@@ -1,0 +1,11 @@
+<div class="recognition-component-container">
+  <div class="top-bar"></div>
+  <mat-divider></mat-divider>
+  <div class="content">
+    <webcam
+      [trigger]="triggerObservable"
+      (imageCapture)="handleImage($event)"
+    ></webcam>
+    <button (click)="triggerSnapshot()"></button>
+  </div>
+</div>

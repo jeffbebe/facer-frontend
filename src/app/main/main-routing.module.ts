@@ -16,6 +16,13 @@ const routes: Routes = [
             (module) => module.PicturesModule
           ),
       },
+      {
+        path: Paths.main.recognition,
+        loadChildren: () =>
+          import('./recognition/recognition.module').then(
+            (module) => module.RecognitionModule
+          ),
+      },
     ],
   },
 ];

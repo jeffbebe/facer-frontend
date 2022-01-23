@@ -8,6 +8,7 @@ export const Paths = {
   main: {
     default: '',
     pictures: 'pictures',
+    recognition: 'recognition',
   },
 };
 

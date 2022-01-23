@@ -18,7 +18,7 @@ export class NavComponent {
       route: 'pictures',
     },
     {
-      route: 'detectFace',
+      route: 'recognition',
     },
   ];
 
