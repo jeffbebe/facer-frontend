@@ -2,10 +2,19 @@
   <div class="top-bar"></div>
   <mat-divider></mat-divider>
   <div class="content">
-    <webcam
-      [trigger]="triggerObservable"
-      (imageCapture)="handleImage($event)"
-    ></webcam>
-    <button (click)="triggerSnapshot()"></button>
+    <div class="wrapper">
+      <ng-container *ngIf="frames.length > 0">
+        <ng-container *ngFor="let frame of frames">
+          <div class="frame" [ngStyle]="getFramePosition(frame)"></div>
+          <div class="name" [ngStyle]="getNamePosition(frame)">
+            {{ frame.name }}
+          </div>
+        </ng-container>
+      </ng-container>
+      <webcam
+        [trigger]="triggerObservable"
+        (imageCapture)="handleImage($event)"
+      ></webcam>
+    </div>
   </div>
 </div>

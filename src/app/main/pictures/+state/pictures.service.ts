@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import {
+  DeletePictureRequestData,
   DetectedFacesFrame,
   DetectFacesRequestData,
   DownloadedPicture,
@@ -24,5 +25,9 @@ export class PicturesService {
 
   public detectFaces({ formData }: DetectFacesRequestData) {
     return this.http.post<DetectedFacesFrame[]>('api/recognise', formData);
+  }
+
+  public deletePicture({ id }: DeletePictureRequestData) {
+    return this.http.delete<DetectedFacesFrame[]>(`api/image/${id}`);
   }
 }

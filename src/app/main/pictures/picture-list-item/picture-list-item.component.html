@@ -5,7 +5,13 @@
     </mat-card-header>
     <img [src]="picture.image | safeHtml" alt="User's image" />
     <mat-card-actions>
-      <button type="button" mat-flat-button color="primary">
+      <button
+        type="button"
+        mat-flat-button
+        color="primary"
+        *ngIf="deletePicture"
+        (click)="deletePicture(picture.id)"
+      >
         {{ "app.general.delete" | translate }}
       </button>
     </mat-card-actions>

@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { AppState } from '../../../app.module';
 import {
+  deletePictureRequest,
   detectFacesRequest,
   downloadPicturesRequest,
   uploadPictureRequest,
 } from './pictures.actions';
 import {
+  DeletePictureRequestData,
   DetectFacesRequestData,
   DownloadedPicture,
   UploadPictureData,
 } from '../pictures.interface';
 import { picturesSelector } from './pictures.selector';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class PicturesFacade {
@@ -33,5 +35,9 @@ export class PicturesFacade {
 
   public detectFaces(payload: DetectFacesRequestData): void {
     this.store.dispatch(detectFacesRequest({ payload }));
+  }
+
+  public deletePicture(payload: DeletePictureRequestData): void {
+    this.store.dispatch(deletePictureRequest({ payload }));
   }
 }

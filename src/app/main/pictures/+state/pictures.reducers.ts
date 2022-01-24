@@ -65,5 +65,23 @@ export const picturesReducer = createReducer(
       ...state,
       isFetching: filterKey(state.isFetching, 'detectFaces'),
     };
+  }),
+  on(picturesActionTypes.deletePictureRequest, (state) => {
+    return {
+      ...state,
+      isFetching: [...state.isFetching, 'deletePicture'],
+    };
+  }),
+  on(picturesActionTypes.deletePictureSuccess, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'deletePicture'),
+    };
+  }),
+  on(picturesActionTypes.deletePictureFailure, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'deletePicture'),
+    };
   })
 );
