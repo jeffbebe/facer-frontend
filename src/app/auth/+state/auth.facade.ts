@@ -8,6 +8,7 @@ import { UserLoginData, UserRegisterData } from '../auth.interface';
 import {
   loginUserRequest,
   logoutUserRequest,
+  refreshUserToken,
   registerUserRequest,
 } from './auth.actions';
 import { userSelector } from './auth.selector';
@@ -30,5 +31,9 @@ export class AuthFacade {
 
   public logoutUser(): void {
     this.store.dispatch(logoutUserRequest());
+  }
+
+  public refreshUserToken(accessToken: string): void {
+    this.store.dispatch(refreshUserToken({ accessToken }));
   }
 }

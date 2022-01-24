@@ -58,6 +58,10 @@ export class AmplifyService {
     );
   }
 
+  public refreshToken(): Observable<CognitoUserSession> {
+    return from(Auth.currentSession());
+  }
+
   public getCurrentUserInfo(): Observable<CurrentUserInfo> {
     return from(Auth.currentUserInfo());
   }

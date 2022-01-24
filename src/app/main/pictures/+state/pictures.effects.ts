@@ -6,6 +6,12 @@ import { catchError, concatMap, map } from 'rxjs/operators';
 
 import { HttpErrorService } from '../../../shared/services/http-error.service';
 import {
+  detectFacesFailure,
+  detectFacesRequest,
+  detectFacesSuccess,
+  downloadPicturesFailure,
+  downloadPicturesRequest,
+  downloadPicturesSuccess,
   uploadPictureFailure,
   uploadPictureRequest,
   uploadPictureSuccess,
@@ -32,6 +38,41 @@ export class PicturesEffects {
           catchError((httpError: HttpErrorResponse) => {
             this.httpErrorService.handleErrors(httpError);
             return of(uploadPictureFailure());
+          })
+        );
+      })
+    );
+  });
+
+  public downloadPicturesRequest$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(downloadPicturesRequest),
+      concatMap(() => {
+        return this.picturesService.downloadPictures().pipe(
+          map((pictures) => {
+            return downloadPicturesSuccess({ pictures });
+          }),
+          catchError((httpError: HttpErrorResponse) => {
+            this.httpErrorService.handleErrors(httpError);
+            return of(downloadPicturesFailure());
+          })
+        );
+      })
+    );
+  });
+
+  public detectFacesRequest$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(detectFacesRequest),
+      concatMap(({ payload }) => {
+        return this.picturesService.detectFaces(payload).pipe(
+          map((response) => {
+            payload.onSuccess(response);
+            return detectFacesSuccess();
+          }),
+          catchError((httpError: HttpErrorResponse) => {
+            this.httpErrorService.handleErrors(httpError);
+            return of(detectFacesFailure());
           })
         );
       })

@@ -17,7 +17,7 @@ export const picturesReducer = createReducer(
       isFetching: [...state.isFetching, 'uploadPicture'],
     };
   }),
-  on(picturesActionTypes.uploadPictureSuccess, (state, action) => {
+  on(picturesActionTypes.uploadPictureSuccess, (state) => {
     return {
       ...state,
       isFetching: filterKey(state.isFetching, 'uploadPicture'),
@@ -27,6 +27,43 @@ export const picturesReducer = createReducer(
     return {
       ...state,
       isFetching: filterKey(state.isFetching, 'uploadPicture'),
+    };
+  }),
+  on(picturesActionTypes.downloadPicturesRequest, (state) => {
+    return {
+      ...state,
+      isFetching: [...state.isFetching, 'downloadPictures'],
+    };
+  }),
+  on(picturesActionTypes.downloadPicturesSuccess, (state, action) => {
+    return {
+      ...state,
+      pictures: action.pictures,
+      isFetching: filterKey(state.isFetching, 'downloadPictures'),
+    };
+  }),
+  on(picturesActionTypes.downloadPicturesFailure, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'downloadPictures'),
+    };
+  }),
+  on(picturesActionTypes.detectFacesRequest, (state) => {
+    return {
+      ...state,
+      isFetching: [...state.isFetching, 'detectFaces'],
+    };
+  }),
+  on(picturesActionTypes.detectFacesSuccess, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'detectFaces'),
+    };
+  }),
+  on(picturesActionTypes.detectFacesFailure, (state) => {
+    return {
+      ...state,
+      isFetching: filterKey(state.isFetching, 'detectFaces'),
     };
   })
 );

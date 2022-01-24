@@ -14,7 +14,7 @@
       <div class="content">
         <div class="nav-user-data-container">
           <div class="title">{{ "app.main.user" | translate }}</div>
-          <div class="user-data">Sth about user...</div>
+          <div class="user-data" *ngIf="user">{{ user.email }}</div>
         </div>
         <mat-divider></mat-divider>
         <app-nav></app-nav>

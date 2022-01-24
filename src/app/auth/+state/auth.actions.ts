@@ -30,6 +30,11 @@ export const logoutUserSuccess = createAction('[Auth] Logout User Success');
 
 export const logoutUserFailure = createAction('[Auth] Logout User Failure');
 
+export const refreshUserToken = createAction(
+  '[Auth] Refresh User Token',
+  props<{ accessToken: string }>()
+);
+
 export const authActionTypes = {
   loginUserRequest,
   loginUserSuccess,
@@ -40,4 +45,5 @@ export const authActionTypes = {
   logoutUserRequest,
   logoutUserSuccess,
   logoutUserFailure,
+  refreshUserToken,
 };
