@@ -1,6 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 
-import { DownloadedPicture, UploadPictureData } from '../pictures.interface';
+import {
+  DetectFacesRequestData,
+  DownloadedPicture,
+  UploadPictureData,
+} from '../pictures.interface';
 
 export const uploadPictureRequest = createAction(
   '[Pictures] Upload Picture Request',
@@ -28,6 +32,19 @@ export const downloadPicturesFailure = createAction(
   '[Pictures] Download Pictures Failure'
 );
 
+export const detectFacesRequest = createAction(
+  '[Pictures] Detect Faces Request',
+  props<{ payload: DetectFacesRequestData }>()
+);
+
+export const detectFacesSuccess = createAction(
+  '[Pictures] Detect Faces Success'
+);
+
+export const detectFacesFailure = createAction(
+  '[Pictures] Detect Faces Failure'
+);
+
 export const picturesActionTypes = {
   uploadPictureRequest,
   uploadPictureSuccess,
@@ -35,4 +52,7 @@ export const picturesActionTypes = {
   downloadPicturesRequest,
   downloadPicturesSuccess,
   downloadPicturesFailure,
+  detectFacesRequest,
+  detectFacesSuccess,
+  detectFacesFailure,
 };

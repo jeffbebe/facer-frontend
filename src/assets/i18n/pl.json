@@ -25,7 +25,10 @@
       "loggingIn": "Logowanie",
       "register": "Zarejestruj się",
       "registering": "Rejestracja",
-      "confirmPassword": "Potwierdź hasło"
+      "confirmPassword": "Potwierdź hasło",
+      "clear": "Wyczyść",
+      "preview": "Podgląd",
+      "delete": "Usuń"
     },
     "auth": {
       "login": {
@@ -48,6 +51,10 @@
       "detectFace": "Wykrywanie twarzy",
       "pictures": "Zdjęcia",
       "picturesRoute": {
+        "addPhotoToDb": "Wgraj zdjęcie do bazy",
+        "faceChecking": "Wykrywanie twarzy",
+        "faceCheck": "Wykryj twarze",
+        "savedPictures": "Zapisane twarze",
         "name": "Nazwa zdjęcia",
         "chooseFile": "Wgraj zdjęcie",
         "upload": "Prześlij",
