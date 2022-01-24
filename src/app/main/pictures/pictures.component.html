@@ -71,8 +71,8 @@
       <div class="wrapper">
         <ng-container *ngIf="frames.length > 0">
           <ng-container *ngFor="let frame of frames">
-            <div class="frame" [ngStyle]="getFrameParameters(frame)"></div>
-            <div class="name" [ngStyle]="getFrameParameters(frame)">
+            <div class="frame" [ngStyle]="getFramePosition(frame)"></div>
+            <div class="name" [ngStyle]="getNamePosition(frame)">
               {{ frame.name }}
             </div>
           </ng-container>

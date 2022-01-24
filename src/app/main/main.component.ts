@@ -1,4 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
+import { AuthFacade } from '../auth/+state/auth.facade';
+import { User } from '../shared/services/amplify.service';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +12,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class MainComponent implements OnInit {
-  constructor() {}
+  public subscription = new Subscription();
+  public user?: User;
+  constructor(private readonly authFacade: AuthFacade) {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.subscription.add(
+      this.authFacade
+        .getUser()
+        .pipe(tap((user) => (this.user = user)))
+        .subscribe()
+    );
+  }
 }

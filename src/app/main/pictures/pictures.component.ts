@@ -94,6 +94,7 @@ export class PicturesComponent {
 
   // Image Preview
   public showPreview(): void {
+    this.frames = [];
     const reader = new FileReader();
     reader.onload = (e) => {
       this.imageURL = e.target?.result as string;
@@ -104,6 +105,7 @@ export class PicturesComponent {
   public clearPreview(): void {
     this.detectFaceImage.reset();
     this.imageURL = '';
+    this.frames = [];
   }
 
   public onImageUploadSuccess(): void {
@@ -115,13 +117,21 @@ export class PicturesComponent {
     });
   }
 
-  public getFrameParameters(frame: DetectedFacesFrame) {
+  public getFramePosition(frame: DetectedFacesFrame) {
     const coords = frame.coordinates;
     return {
       top: coords[0] + 'px',
       left: coords[3] + 'px',
       width: coords[1] - coords[3] + 'px',
       height: coords[2] - coords[0] + 'px',
+    };
+  }
+
+  public getNamePosition(frame: DetectedFacesFrame) {
+    const coords = frame.coordinates;
+    return {
+      top: coords[0] + coords[1] - coords[3] + 6 + 'px',
+      left: coords[3] + 16 + 'px',
     };
   }
 }

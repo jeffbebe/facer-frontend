@@ -5,7 +5,9 @@
     </mat-card-header>
     <img [src]="picture.image | safeHtml" alt="User's image" />
     <mat-card-actions>
-      <button type="button" mat-flat-button color="primary">Delete??</button>
+      <button type="button" mat-flat-button color="primary">
+        {{ "app.general.delete" | translate }}
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>

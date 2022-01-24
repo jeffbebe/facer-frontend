@@ -27,7 +27,8 @@
       "registering": "Rejestracja",
       "confirmPassword": "Potwierdź hasło",
       "clear": "Wyczyść",
-      "preview": "Podgląd"
+      "preview": "Podgląd",
+      "delete": "Usuń"
     },
     "auth": {
       "login": {
