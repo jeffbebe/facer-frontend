@@ -1,5 +1,5 @@
 export type PicturesStateKeys = Array<
-  'uploadPicture' | 'downloadPictures' | 'detectFaces'
+  'uploadPicture' | 'downloadPictures' | 'detectFaces' | 'deletePicture'
 >;
 
 export type PicturesFetchKeys = PicturesStateKeys[number];
@@ -16,6 +16,7 @@ export interface UploadPictureData {
 
 export interface DetectFacesRequestData {
   formData: FormData;
+  terminateErrors?: boolean;
   onSuccess: (frames: DetectedFacesFrame[]) => void;
 }
 
@@ -26,6 +27,12 @@ export interface Event<T = EventTarget> {
 export interface DownloadedPicture {
   name: string;
   image: string;
+  id: string;
+}
+
+export interface DeletePictureRequestData {
+  id: string;
+  onSuccess: () => void;
 }
 
 export interface DetectedFacesFrame {

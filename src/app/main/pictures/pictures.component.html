@@ -1,6 +1,6 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
-  <div class="pictures-component-container">
-    <div class="top-bar">
+<div class="pictures-component-container">
+  <div class="top-bar">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
       <div class="picture-upload">
         <div class="title">
           {{ "app.main.picturesRoute.addPhotoToDb" | translate }}
@@ -28,66 +28,67 @@
           </button>
         </div>
       </div>
-      <div class="face-check">
-        <div class="title">
-          {{ "app.main.picturesRoute.faceChecking" | translate }}
-        </div>
-        <div class="forms">
-          <mat-form-field appearance="outline">
-            <mat-label>
-              {{ "app.main.picturesRoute.chooseFile" | translate }}</mat-label
-            >
-            <ngx-mat-file-input
-              [formControl]="detectFaceImage"
-              color="primary"
-              (change)="showPreview()"
-            ></ngx-mat-file-input>
-          </mat-form-field>
-          <button
-            mat-raised-button
-            type="button"
-            color="primary"
-            (click)="detectFaces()"
-            [disabled]="detectFaceImage.invalid"
-          >
-            {{ "app.main.picturesRoute.faceCheck" | translate }}
-          </button>
-          <button
-            mat-raised-button
-            type="button"
-            color="primary"
-            (click)="clearPreview()"
-          >
-            {{ "app.general.clear" | translate }}
-          </button>
-        </div>
-      </div>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="picture-preview" *ngIf="detectFaceImage.value">
+    </form>
+    <div class="face-check">
       <div class="title">
-        {{ "app.general.preview" | translate }}
+        {{ "app.main.picturesRoute.faceChecking" | translate }}
       </div>
-      <div class="wrapper">
-        <ng-container *ngIf="frames.length > 0">
-          <ng-container *ngFor="let frame of frames">
-            <div class="frame" [ngStyle]="getFramePosition(frame)"></div>
-            <div class="name" [ngStyle]="getNamePosition(frame)">
-              {{ frame.name }}
-            </div>
-          </ng-container>
-        </ng-container>
-        <img [src]="imageURL" alt="" />
+      <div class="forms">
+        <mat-form-field appearance="outline">
+          <mat-label>
+            {{ "app.main.picturesRoute.chooseFile" | translate }}</mat-label
+          >
+          <ngx-mat-file-input
+            [formControl]="detectFaceImage"
+            color="primary"
+            (change)="showPreview()"
+          ></ngx-mat-file-input>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          type="button"
+          color="primary"
+          (click)="detectFaces()"
+          [disabled]="detectFaceImage.invalid"
+        >
+          {{ "app.main.picturesRoute.faceCheck" | translate }}
+        </button>
+        <button
+          mat-raised-button
+          type="button"
+          color="primary"
+          (click)="clearPreview()"
+        >
+          {{ "app.general.clear" | translate }}
+        </button>
       </div>
-      <mat-divider></mat-divider>
-    </div>
-    <div class="content" *ngIf="downloadedPictures">
-      <div class="title">
-        {{ "app.main.picturesRoute.savedPictures" | translate }}
-      </div>
-      <app-picture-list
-        [downloadedPictures]="downloadedPictures"
-      ></app-picture-list>
     </div>
   </div>
-</form>
+  <mat-divider></mat-divider>
+  <div class="picture-preview" *ngIf="detectFaceImage.value">
+    <div class="title">
+      {{ "app.general.preview" | translate }}
+    </div>
+    <div class="wrapper">
+      <ng-container *ngIf="frames.length > 0">
+        <ng-container *ngFor="let frame of frames">
+          <div class="frame" [ngStyle]="getFramePosition(frame)"></div>
+          <div class="name" [ngStyle]="getNamePosition(frame)">
+            {{ frame.name }}
+          </div>
+        </ng-container>
+      </ng-container>
+      <img [src]="imageURL" alt="" />
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="content" *ngIf="downloadedPictures">
+    <div class="title">
+      {{ "app.main.picturesRoute.savedPictures" | translate }}
+    </div>
+    <app-picture-list
+      [downloadedPictures]="downloadedPictures"
+      [deletePicture]="deletePicture.bind(this)"
+    ></app-picture-list>
+  </div>
+</div>

@@ -3,7 +3,11 @@
     <ng-container
       *ngFor="let picture of downloadedPictures; trackBy: trackByKey"
     >
-      <app-picture-list-item [picture]="picture"></app-picture-list-item>
+      <app-picture-list-item
+        *ngIf="deletePicture"
+        [picture]="picture"
+        [deletePicture]="deletePicture.bind(this)"
+      ></app-picture-list-item>
     </ng-container>
   </div>
 </div>

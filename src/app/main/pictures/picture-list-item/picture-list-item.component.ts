@@ -8,4 +8,5 @@ import { DownloadedPicture } from '../pictures.interface';
 })
 export class PictureListItemComponent {
   @Input() picture?: DownloadedPicture;
+  @Input() deletePicture: (id: string) => void = (): void => {};
 }

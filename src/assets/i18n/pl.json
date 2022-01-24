@@ -50,6 +50,7 @@
       "logout": "Wyloguj",
       "detectFace": "Wykrywanie twarzy",
       "pictures": "Zdjęcia",
+      "recognition": "Wykryj z kamery",
       "picturesRoute": {
         "addPhotoToDb": "Wgraj zdjęcie do bazy",
         "faceChecking": "Wykrywanie twarzy",
@@ -58,7 +59,8 @@
         "name": "Nazwa zdjęcia",
         "chooseFile": "Wgraj zdjęcie",
         "upload": "Prześlij",
-        "onImageUploadSuccess": "Pomyślnie wykryto twarz i dodano zdjęcie do zbioru"
+        "onImageUploadSuccess": "Pomyślnie wykryto twarz i dodano zdjęcie do zbioru",
+        "onDeletePictureSuccess": "Pomyślnie usunięto zdjęcie"
       }
     }
   }

@@ -6,6 +6,9 @@ import { catchError, concatMap, map } from 'rxjs/operators';
 
 import { HttpErrorService } from '../../../shared/services/http-error.service';
 import {
+  deletePictureFailure,
+  deletePictureRequest,
+  deletePictureSuccess,
   detectFacesFailure,
   detectFacesRequest,
   detectFacesSuccess,
@@ -71,8 +74,27 @@ export class PicturesEffects {
             return detectFacesSuccess();
           }),
           catchError((httpError: HttpErrorResponse) => {
-            this.httpErrorService.handleErrors(httpError);
+            !payload.terminateErrors &&
+              this.httpErrorService.handleErrors(httpError);
             return of(detectFacesFailure());
+          })
+        );
+      })
+    );
+  });
+
+  public deletePictureRequest$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(deletePictureRequest),
+      concatMap(({ payload }) => {
+        return this.picturesService.deletePicture(payload).pipe(
+          map(() => {
+            payload.onSuccess();
+            return deletePictureSuccess();
+          }),
+          catchError((httpError: HttpErrorResponse) => {
+            this.httpErrorService.handleErrors(httpError);
+            return of(deletePictureFailure());
           })
         );
       })

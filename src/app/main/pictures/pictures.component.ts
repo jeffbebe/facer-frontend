@@ -5,10 +5,12 @@ import {
   FormGroupDirective,
   Validators,
 } from '@angular/forms';
-import { isEqual, uniqBy } from 'lodash-es';
+import { isEqual } from 'lodash-es';
 import { Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+import { getFramePosition } from '../../../app/shared/utils/get-frame-position.util';
+import { getNamePosition } from '../../../app/shared/utils/get-name-position.util';
 import { SnackbarService } from '../../../app/shared/services/snackbar.service';
 import { PicturesFacade } from './+state/pictures.facade';
 import { DetectedFacesFrame, DownloadedPicture } from './pictures.interface';
@@ -22,6 +24,9 @@ export class PicturesComponent {
   @ViewChild(FormGroupDirective) formDirective?: FormGroupDirective;
   public imageURL: string = '';
   public frames: DetectedFacesFrame[] = [];
+
+  public getFramePosition = getFramePosition;
+  public getNamePosition = getNamePosition;
 
   public subscription = new Subscription();
 
@@ -79,6 +84,20 @@ export class PicturesComponent {
     });
   }
 
+  public onDeletePictureSuccess(): void {
+    this.picturesFacade.downloadPictures();
+    this.snackbar.open({
+      message: 'app.main.picturesRoute.onDeletePictureSuccess',
+    });
+  }
+
+  public deletePicture(id: string): void {
+    this.picturesFacade.deletePicture({
+      id,
+      onSuccess: () => this.onDeletePictureSuccess(),
+    });
+  }
+
   public onFaceDetectSuccess(frames: DetectedFacesFrame[]): void {
     const tempArray = [frames[0]];
 
@@ -115,23 +134,5 @@ export class PicturesComponent {
     this.snackbar.open({
       message: 'app.main.picturesRoute.onImageUploadSuccess',
     });
-  }
-
-  public getFramePosition(frame: DetectedFacesFrame) {
-    const coords = frame.coordinates;
-    return {
-      top: coords[0] + 'px',
-      left: coords[3] + 'px',
-      width: coords[1] - coords[3] + 'px',
-      height: coords[2] - coords[0] + 'px',
-    };
-  }
-
-  public getNamePosition(frame: DetectedFacesFrame) {
-    const coords = frame.coordinates;
-    return {
-      top: coords[0] + coords[1] - coords[3] + 6 + 'px',
-      left: coords[3] + 16 + 'px',
-    };
   }
 }

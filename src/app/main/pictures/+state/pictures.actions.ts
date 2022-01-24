@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 
 import {
+  DeletePictureRequestData,
   DetectFacesRequestData,
   DownloadedPicture,
   UploadPictureData,
@@ -45,6 +46,19 @@ export const detectFacesFailure = createAction(
   '[Pictures] Detect Faces Failure'
 );
 
+export const deletePictureRequest = createAction(
+  '[Pictures] Delete Picture Request',
+  props<{ payload: DeletePictureRequestData }>()
+);
+
+export const deletePictureSuccess = createAction(
+  '[Pictures] Delete Picture Success'
+);
+
+export const deletePictureFailure = createAction(
+  '[Pictures] Delete Picture Failure'
+);
+
 export const picturesActionTypes = {
   uploadPictureRequest,
   uploadPictureSuccess,
@@ -55,4 +69,7 @@ export const picturesActionTypes = {
   detectFacesRequest,
   detectFacesSuccess,
   detectFacesFailure,
+  deletePictureRequest,
+  deletePictureSuccess,
+  deletePictureFailure,
 };
