@@ -1,5 +1,5 @@
 
-FROM node:10-alpine as build-step
+FROM node:10-alpine
 
 ENV APP_HOME /app
 WORKDIR $APP_HOME
