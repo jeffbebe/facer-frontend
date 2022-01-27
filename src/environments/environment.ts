@@ -7,6 +7,7 @@ export const environment = {
   region: '',
   userPoolId: '',
   userPoolWebClientId: '',
+  backendUrl: '',
 };
 
 /*

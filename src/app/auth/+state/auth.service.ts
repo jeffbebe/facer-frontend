@@ -1,3 +1,4 @@
+import { environment } from '$environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -23,7 +24,7 @@ export class AuthService {
   }
 
   public register(payload: UserRegisterData) {
-    return this.http.post('api/register', payload);
+    return this.http.post(`${environment.backendUrl}/register`, payload);
   }
 
   public getCurrentUserInfo(): Observable<CurrentUserInfo> {
