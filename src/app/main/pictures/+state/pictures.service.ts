@@ -38,8 +38,4 @@ export class PicturesService {
       `${environment.backendUrl}/image/${id}`
     );
   }
-
-  public deletePicture({ id }: DeletePictureRequestData) {
-    return this.http.delete<DetectedFacesFrame[]>(`api/image/${id}`);
-  }
 }
