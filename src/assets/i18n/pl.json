@@ -16,7 +16,8 @@
         "No such user found in db": "Nie odnaleziono takiego użytkownika",
         "No image or name was delivered": "Nazwa lub zdjęcie nie zostało dostarczone",
         "Invalid user data": "Niepoprawne dane"
-      }
+      },
+      "UserNotConfirmedException": "Adres email wymaga potwierdzenia"
     },
     "general": {
       "email": "Adres email",

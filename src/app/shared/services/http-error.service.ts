@@ -15,7 +15,8 @@ export class HttpErrorService {
   ): boolean => {
     return (
       error.message === 'Cannot retrieve a new session' ||
-      error.message === 'Refresh Token has expired'
+      error.message === 'Refresh Token has expired' ||
+      error.message === 'User is not confirmed.'
     );
   };
 
