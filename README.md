@@ -21,3 +21,9 @@ Run `yarn` to build the project. The build artifacts will be stored in the `dist
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Aplication Preview
+
+![Alt text](src/assets/images/login-page.jpg?raw=true "Logging page")
+
+![Alt text](src/assets/images/first-page.jpg?raw=true "First page")
